@@ -114,6 +114,7 @@ function formValidation(ev) {
 
     if (errors == '') {
         console.log("COLLECTED DATA:", data);
+        document.forms['contact'].reset();
     } else {
         console.log("ERRORS:", errors);
     }
