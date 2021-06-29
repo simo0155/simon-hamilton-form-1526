@@ -21,7 +21,7 @@ let msg = document.getElementById('message');
 // Declare variable that will
 // store regular expression for email
 
-// let email = "";
+let pattern = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
 
 // READY TO START CODING
 // Start with your function here
@@ -68,7 +68,11 @@ function formValidation(ev) {
     // to your object "data".
 
     if (em.value !== '') {
-        data.email = em.value;
+        if (pattern.test(em.value)) {
+            data.email = em.value;
+        } else {
+            console.log('Email Format is Invald')
+        }
     }
     // Otherwise:
     // Create a corresponding error-message
@@ -123,7 +127,7 @@ function formValidation(ev) {
 
 }
 
-    // Register your form to "click" event.
+// Register your form to "click" event.
 
 
 sb.addEventListener('click', formValidation);
